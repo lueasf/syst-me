@@ -1,6 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h> // fork
+#include <stdlib.h> // exit, atoi
+#include <stdio.h> // printf
+#include <unistd.h> // fork, getpid
+#include <wait.h> // wait
 
 // 1 -
 // réaliser une chaine de processus comme suit:
