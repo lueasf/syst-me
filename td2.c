@@ -17,7 +17,7 @@ int main(){
 // Oui	        Oui	            3	   0
 // Oui	        Non	            -1	ENOENT (2 : No such file or directory)
 // Non	        Oui	            3	   0
-// Non	        Non	            -1	ENOENT 
+// Non	        Non	            -1	ENOENT (-1 si l'ouverture à échoué) 
 
 
 // 2 - Il y a un programme, dire ce qu'il affiche.

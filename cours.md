@@ -14,6 +14,11 @@ L'OS fournit deux interfaces :
 Le shell (coquille) englobe l'OS.
 tty : teletype désigne des terminaux virtuels sur linux.
 
+# Kernel (noyau)
+C'est le coeur de l'OS.
+Il gère le matériel (CPU, mémoire, péripériques).
+Un Os complet inclut le kernel + des outils et une interface utilisateur.
+
 # POSIX
 **UNIX** est une famille de systèmes d'exploitation reconnue pour sa simplicité et son code source libre, avec une standardisation assurée par **POSIX** pour garantir la compatibilité entre systèmes UNIX.
 
@@ -35,6 +40,12 @@ la différence enter `dup()` et `dup2()` est que `dup2()` prend un deuxième arg
 | `cat toto`     | `cat` ouvre direct le fich.  | Depuis le fich `toto`.  |
 | `cat < toto`   | Le **shell** ouvre le fich et redirige `stdin`. | Depuis `stdin` (redirigé vers `toto`). |
 
+
+# Sémaphores
+Un **sémaphore** est un ENTIER partagé entre les processus pour contrôler l'accès à une ressource partagée. Il est utilisé pour la synchronisation entre processus.
+L'interblocage (deadlock) est un problème qui survient lorsqu'un groupe 
+de processus attend indéfiniment une ressource qui ne sera jamais libérée.
+Un mutex (mutual exclusion) est un mécanisme de synchronisation utilisé pour protéger une ressource partagée.
 
 # Processus
 def : l'entité dynamique qui représente l'exec d'un prog sur un processeur.
@@ -81,6 +92,7 @@ donc un processeur à 8 cœurs peut gérer 16 threads.
 L'hyperthreading est une technologie qui permet à un seul cœur de traiter
 deux threads en même temps.
 
+la lib des appels système est dans unistd.h
 Une primitive ou appel système est une fonction qui permet à un programme
 d'interagir avec le noyau du système d'exploitation.
 Ex : `fork()`, `getpid()`, ...
@@ -180,3 +192,4 @@ Les **signaux** sont des messages asynchrones pour contrôler les processus, pou
 Les signaux facilitent la synchronisation entre processus, permettant, par exemple, à un processus 
 fils de signaler au parent la fin de son exécution pour libérer les ressources.
 
+man sigaction
