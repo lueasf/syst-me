@@ -16,7 +16,7 @@ while((nb_read = read(src, buf, sizeof(buf)))>0){
     }
 }
 ```
->read() lit un maximum de sizeof(buf) octets à partir de src dans le tampon buf.
+>read() lit un maximum de sizeof(buf) octets à partir de src dans le tampon buf. nb_read contient le nombre d'octets lus.
 >write() ecrit des octets depuis buf dans dest, à partir de l'offset nb_written et spécifie le nombre d'octets qu'il reste à écrire.
 
 
