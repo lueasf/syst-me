@@ -82,16 +82,16 @@ int rep(){
 // ici dup2(fd,0) redirige l'entrée standard vers le fichier toto.txt
 // c'est à dire que cat lit depuis stdin, en fait il lit le CONTENU de toto.txt.
 
-// 5 - cat toto : ici cat oivre directement le fichier lui-même via
+// 5 - cat toto : ici cat suivre directement le fichier lui-même via
 // un appel système open() et lit son contenu via read().
 
 
 // 6 - implémenter popen() qui permet de lire le résultat d'une commande shell
 // ex de popen : FILE *f = popen("ls -l", "r"); // ouvre un pipe pour lire le résultat de ls -l
 int mypopen(char *cmd){
-    int fd[2];
-    // fd[0] : Desc de fich pr la lecture.
-    // fd[1] : Desc de fich pr l'écriture. 
+    int fd[2]; // tableau de 2 descripteurs de fichiers
+    // fd[0] : Desc de fich pr la lecture. (sortie)
+    // fd[1] : Desc de fich pr l'écriture. (entréé)
     // permet d'envoyer des data du proc fils au proc père via le pipe.
     pipe(fd); 
     if (fork() > 0) { /* père */

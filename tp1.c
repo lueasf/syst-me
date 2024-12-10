@@ -4,6 +4,7 @@
 #include <unistd.h> // fork
 #include <sys/wait.h> // wait
 #include <signal.h> // signal 
+#include <string.h> // memset
 
 // 1 - Programme qui crée 10 processus fils.
 int ten(){
@@ -21,7 +22,7 @@ int ten(){
 
 // 2 - écrire un prog qui exec 5 fois au plus une 
 // commande Unix qu'on lui passe en paramètre
-int main(int argc, char* argv[]){
+int main1(int argc, char* argv[]){
     int i, status; 
     if (argc < 2) {exit(1);}
     for (i = 0; i<5; i ++){
@@ -51,10 +52,10 @@ void handler(int sig){
     }
 }
 
-int main(){
-    signal(SIGINT, handler);
-    while(1){ // la boucle infinir maintient le programme en cours d'exec.
-        pause(); // pause() met le processus en attente d'un signal
-    }
-    return 0;
-}
+// int main(){
+//     struct sigaction nvt, old;
+//     memset(&nvt, 0, sizeof(nvt));
+//     nvt.sa_handler = handler;
+//     sigaction(SIGINT, &nvt, &old);
+//     while (1);
+// }

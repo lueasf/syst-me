@@ -70,7 +70,7 @@ int main(int argc, char** argv) {
 
     for (i = 0; i < nb; i++) {
         args[i] = i; // Stocke le numéro d'ordre pour chaque thread
-        pthread_create(&threads[i], NULL, helloworld, &args[i]);
+        pthread_create(&threads[i], NULL, helloworld2, &args[i]);
     }
     for (i = 0; i < nb; i++) {
         pthread_join(threads[i], NULL);
